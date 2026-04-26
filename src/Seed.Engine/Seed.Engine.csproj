@@ -11,4 +11,8 @@
     <Authors>bui1 (Simon Cantin)</Authors>
     <Description>SEED engine — DSL brief compactor for LLMs and FORGE 3D viz</Description>
   </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="TokenDb/tokens.cli.json" />
+  </ItemGroup>
 </Project>

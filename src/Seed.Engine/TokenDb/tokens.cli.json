@@ -1,0 +1,26 @@
+{
+  "projectType": "cli",
+  "version": "1.0",
+  "verbs": [
+    { "name": "scraper", "category": "acquisition", "color": "#3b82f6", "acceptsModifiers": ["temps-réel", "format"] },
+    { "name": "recevoir", "category": "acquisition", "color": "#3b82f6", "acceptsModifiers": ["webhook", "format"] },
+    { "name": "lire", "category": "acquisition", "color": "#3b82f6", "acceptsModifiers": ["format", "encoding"] },
+    { "name": "filtrer", "category": "transformation", "color": "#06b6d4", "acceptsModifiers": ["pertinence", "regex", "ml"] },
+    { "name": "parser", "category": "transformation", "color": "#06b6d4", "acceptsModifiers": ["format", "strict"] },
+    { "name": "transformer", "category": "transformation", "color": "#06b6d4", "acceptsModifiers": ["format"] },
+    { "name": "analyser", "category": "analyse", "color": "#f97316", "acceptsModifiers": ["temps-réel", "ml"] },
+    { "name": "détecter", "category": "analyse", "color": "#f97316", "acceptsModifiers": ["seuil", "pattern"] },
+    { "name": "valider", "category": "analyse", "color": "#f97316", "acceptsModifiers": ["schéma", "strict"] },
+    { "name": "créer", "category": "action", "color": "#22c55e", "acceptsModifiers": ["format", "template"] },
+    { "name": "enregistrer", "category": "action", "color": "#22c55e", "acceptsModifiers": ["type", "format"] },
+    { "name": "générer", "category": "action", "color": "#22c55e", "acceptsModifiers": ["format", "template"] },
+    { "name": "envoyer", "category": "communication", "color": "#a855f7", "acceptsModifiers": ["format", "destinataire"] },
+    { "name": "alerter", "category": "communication", "color": "#a855f7", "acceptsModifiers": ["si", "niveau"] },
+    { "name": "notifier", "category": "communication", "color": "#a855f7", "acceptsModifiers": ["canal", "niveau"] },
+    { "name": "surveiller", "category": "controle", "color": "#eab308", "acceptsModifiers": ["intervalle", "seuil"] },
+    { "name": "déclencher", "category": "controle", "color": "#eab308", "acceptsModifiers": ["si", "cron"] },
+    { "name": "retry", "category": "controle", "color": "#eab308", "acceptsModifiers": ["3-fois", "backoff"] },
+    { "name": "logger", "category": "erreur", "color": "#991b1b", "acceptsModifiers": ["niveau", "format"] },
+    { "name": "gérer-erreur", "category": "erreur", "color": "#991b1b", "acceptsModifiers": ["fallback", "alerte"] }
+  ]
+}
