@@ -26,15 +26,40 @@ filtrer <mail> <pertinence> → enregistrer <db> & alerter <slack>
 
 ## Status
 
-🌱 **Design phase** — v1 implementation not started.
+🌱 **v0.1.0 — Engine ready** (2026-04-25)
 
-See [`docs/superpowers/specs/2026-04-25-seed-design.md`](docs/superpowers/specs/2026-04-25-seed-design.md) for the full design document.
+The engine library is complete and tested. Six units (TokenDB, Composer, Parser, Transpiler, Compressor, Storage) compile a CLI-grammar project intent into:
 
-## Architecture (planned)
+- A compressed DSL string (sent to LLMs — measured ≥ 2× compression on real prose)
+- A canonical `.dna` JSON file (consumed by FORGE for 3D viz, separate plan)
 
-- **Engine** (shared lib) : TokenDB, Composer, Parser, Transpiler, Compressor, Storage
-- **Host A** (v1) : module inside FORGE — composer UI + 3D rendering of `.dna`
-- **Host B** (palier 2) : standalone web SPA — copy DSL / download `.dna` / push to FORGE
+**Test coverage:** 47 tests, all green (`dotnet test`).
+
+**Build:**
+```bash
+dotnet build      # builds Seed.Engine class library (.NET 8)
+dotnet test       # runs full test suite
+```
+
+**Next:** FORGE integration plan (Godot panel UI + 3D renderer adapter that consumes `.dna` files).
+
+## Documents
+
+- Design : [`docs/superpowers/specs/2026-04-25-seed-design.md`](docs/superpowers/specs/2026-04-25-seed-design.md)
+- Plan : [`docs/superpowers/plans/2026-04-25-seed-engine-plan.md`](docs/superpowers/plans/2026-04-25-seed-engine-plan.md)
+- Visual library catalog : [`docs/visual-library/icon-catalog.md`](docs/visual-library/icon-catalog.md)
+
+## Architecture
+
+- **Engine** (`src/Seed.Engine/`) — pure C# .NET 8 class library, no UI/host deps :
+  - `TokenDb` — embedded JSON registry, verb/modifier validation
+  - `Composer` — UI choices → DSL string
+  - `Parser` — DSL string → typed AST + errors
+  - `Transpiler` — AST → canonical `.dna` JSON
+  - `Compressor` — `.dna` → minimal DSL for LLM (strips comments, normalizes whitespace)
+  - `Storage` — CRUD on `.dna` files (JSON file storage; SQLite alternative later if needed)
+- **Host A** (palier 1) : module inside FORGE — composer UI + 3D rendering of `.dna` (separate plan)
+- **Host B** (palier 2) : standalone web SPA via Blazor Wasm — same engine, browser host
 
 ## License
 
