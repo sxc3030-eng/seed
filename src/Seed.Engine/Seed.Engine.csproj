@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <RootNamespace>Seed.Engine</RootNamespace>
+    <AssemblyName>Seed.Engine</AssemblyName>
+    <Version>0.1.0</Version>
+    <Authors>bui1 (Simon Cantin)</Authors>
+    <Description>SEED engine — DSL brief compactor for LLMs and FORGE 3D viz</Description>
+  </PropertyGroup>
+</Project>
