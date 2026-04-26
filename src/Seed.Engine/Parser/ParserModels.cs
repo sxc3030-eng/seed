@@ -31,7 +31,7 @@ public sealed class ParseError
 public sealed class ParseResult
 {
     public List<AstStatement> Statements { get; init; } = new();
-    public Models.ProjectHeader Header { get; init; } = new();
+    public Models.ProjectHeader Header { get; set; } = new();
     public List<ParseError> Errors { get; init; } = new();
     public bool IsValid => Errors.Count == 0;
 }
