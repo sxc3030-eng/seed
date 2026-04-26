@@ -466,6 +466,59 @@ Court, prononçable FR/EN, autonome (pas dépendant nominal de FORGE).
 
 ---
 
+## 10bis. FORGE Visual Library (couche visuelle proprietary)
+
+**Concept clé** : le DSL et le `.dna` restent **inchangés et open-core**. La richesse visuelle FORGE est une couche supérieure qui consomme le `.dna` standard mais ajoute :
+
+### Ce que la Visual Library apporte
+
+- **Icon library** : une icône (SVG ou pixel art) par verbe (`filtrer`, `enregistrer`, `alerter`...) — affichée sur la face du module 3D, pas juste un label texte
+- **Custom 3D module shapes** : par catégorie de verbe, primitive 3D distinctive (au lieu d'un simple cube générique)
+  - Acquisition → cube avec antenne
+  - Transformation → cube avec engrenages animés
+  - Communication → cube avec speaker pulsant
+  - Erreur → cube avec halo d'avertissement
+- **Themes par TYPE de projet** : palette + skybox + sol + ambiance
+  - `cli` → terminal vert sur noir, lignes rétro
+  - `webapp` → bleu/blanc clean, néon léger
+  - `mobile` → pastel arrondi
+  - `api` → gris tech, hexagones
+- **Animations contextuelles** : flèches `→` qui pulsent au survol, modules avec halo `?X` qui clignotent, modules `!X` qui vibrent légèrement
+
+### Bénéfices
+
+| Pour | Bénéfice |
+|---|---|
+| L'user FORGE | Lecture instantanée du graphe sans lire le texte (icônes + couleurs + formes parlent) |
+| Le pitch business | Différenciateur visuel non-copiable même si la spec DSL devient open-source |
+| L'écosystème | Autres viewers peuvent rendre le `.dna` (texte, mind-map 2D, autre) — FORGE garde l'expérience premium 3D |
+
+### Localisation
+
+Cette couche **ne vit pas dans `seed/`** (qui reste pur engine). Elle vit dans **`forge/src/Forge.Godot/Visual/SeedRenderer/`** :
+
+```
+forge/src/Forge.Godot/Visual/SeedRenderer/
+├── IconLibrary/                  ← 1 SVG par verbe
+├── ModuleShapes/                 ← 1 .tscn par catégorie
+├── Themes/                       ← 1 .tres par TYPE
+└── DnaToScene.cs                 ← consume .dna → instancie tout
+```
+
+### Modèle économique
+
+C'est le **vrai moat de FORGE** :
+
+- **Spec DSL + engine + `.dna`** : open-core (Apache 2.0, palier 2)
+- **FORGE Visual Library** : proprietary, vendue avec FORGE
+- **Tu peux lire du `.dna` dans n'importe quel viewer**, mais l'expérience premium reste FORGE (comme PDF est ouvert mais Adobe Reader reste référence)
+
+### Scope
+
+**OUT de v1 SEED** (pas dans le plan engine actuel). Sera traité dans le **plan FORGE integration** qui suit l'engine v0.1.0.
+
+---
+
 ## 11. Open questions / décisions reportées à l'implémentation
 
 1. **Tech stack moteur** : Wasm (TS) vs C# vs dual implementation

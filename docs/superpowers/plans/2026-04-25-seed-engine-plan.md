@@ -2409,12 +2409,13 @@ Expected: tag pushed to GitHub, visible at https://github.com/sxc3030-eng/seed/t
 
 ## Open items deferred to FORGE integration plan
 
-These come from spec §11 and are NOT in this engine plan:
+These come from spec §11 and §10bis and are NOT in this engine plan:
 
 1. Storage v1 final choice (currently JsonFileStorage; SQLite alternative if performance issue)
 2. Algo auto-layout 3D (lives in FORGE renderer adapter)
 3. Panel "Intake" autonome ou intégré au workshop FORGE existant
 4. Format export `.dna` finer details (current: pure JSON, no inline comments preserved separately — comments live on Statement.Comment)
+5. **FORGE Visual Library** (spec §10bis) — Icon library per verb, custom 3D module shapes per category, themes per project TYPE, contextual animations. Lives in `forge/src/Forge.Godot/Visual/SeedRenderer/`. The `.dna` format does NOT change; richness is added at render-time only. This is the proprietary moat that complements the open-core engine.
 
 ---
 
