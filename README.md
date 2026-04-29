@@ -68,3 +68,11 @@ Private repo for now. Open-source release planned for v2 under Apache 2.0 (open-
 ## Author
 
 bui1 (Simon Cantin) — designed in collaboration with Claude (Anthropic).
+
+---
+
+### Method
+
+Architecture-first, AI-paired. Designed and shipped in a **single April 2026 sprint** with **Claude (Opus 4.6)** as paired implementation and audit partner. Each commit cross-audited: code review, dependency check, test-coverage gate. v0.1.0 ships with 47 passing tests across the six engine units (TokenDB, Composer, Parser, Transpiler, Compressor, Storage).
+
+---
